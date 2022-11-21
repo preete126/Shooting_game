@@ -28,6 +28,8 @@ function App() {
   let movingspeed = 7;
   let reset = 0;
   let playState = "run"
+  // let z = Math.random() * 10
+  
 
   //enemy
   const opponent = new Image()
@@ -36,6 +38,7 @@ function App() {
   const Enemy_height = Enemycanvas.height = 100
   let Enemy_count = 50;
   let EnemyArray = []
+  let toggler = false;
 
   //background
   const width = canvas.width = 1260;
@@ -51,18 +54,26 @@ function App() {
     Hero(ctx2)
     const ctx3 = Enemycanvas.current.getContext("2d")
     Enemy(ctx3)
+   
   }, [])
- 
+//  for (let index = 0; index < 30; index++) {
+//   console.log(Math.floor(Math.random()  * 5))
+   
+//  }
 
   let level1 = new Levels(ground_img5, ground_img6, 0.5, gameSpeed);
+  let opponentX = new Enemy_(Enemy_width,0,opponent);
  
   
   //enemy
   for (let e = 0; e < Enemy_count; e++) {
    EnemyArray.push(new Enemy_(Enemy_width,0,opponent))
+   
+}
     
-  }
+ 
 
+  
 
 
   //player
@@ -170,17 +181,29 @@ function App() {
     Hero_context.drawImage(Hero_image,Xframe, Yframe , Sprite[position].H_width, rectH, 0, 0, rectW, rectH)
     
     gameFrame++;
-    requestAnimationFrame(() => Hero(Hero_context,))
+    requestAnimationFrame(() => Hero(Hero_context))
   }
 
 
   //enemy
   function Enemy(Enemy_context) {
     Enemy_context.clearRect(0, 0, Enemy_width, Enemy_height)
-    EnemyArray.forEach(value =>{
+    EnemyArray.forEach((value,inex) =>{
+      
       value.update();
       value.draw(Enemy_context);
+      // if ( EnemyArray[inex].x < 1105 || EnemyArray[inex].x > 1101){
+      //   toggler = true
+      //    console.log("yh")
+      //  }else{
+      //    toggler = false
+      //  } ;
+     
     })
+    
+    // console.log(toggler)
+    
+    // console.log(z)
     requestAnimationFrame(() => Enemy(Enemy_context))
   }
 
@@ -210,6 +233,8 @@ function App() {
             {reader} / 6
           </div>
         </main>
+
+       {toggler == true &&  <section className="Notice">‼ <span style={{color:"white"}}>ENEMIES AHEAD</span> ‼</section>}
 
         <div className="Triger">Exit</div>
         <div className="Triger" onClick={()=> playState = "crouch"} style={{ right: "10%", bottom: "16%" }}>Crouch</div>

@@ -1,16 +1,17 @@
     /**@type {HTMLCanvasElement} */
 export default class Enemy_ {
-    constructor(x,y,image) {
-        this.x = Math.random() * x * 15 ;
+    constructor(x,y,image,) {
+        this.x = Math.floor(Math.random() * x * 15 ) ;
         this.y =  y;
         this.spriteW = 60;
         this.spriteH = 83;
-        this.width = 73;
-        this.height = 83;
+        this.width = 83;
+        this.height = 80;
         this.image = image;
         this.Enemy_speed = Math.random() * 1 
         this.frame = 1
         this.speed = 0;
+        this.playeState = "run";
         this.movingSpeed = 25;
         this.animation = []
         this.enemySprite = [
@@ -58,16 +59,21 @@ export default class Enemy_ {
     }
     update(){
       this.speed++
-      this.x == 0 && this.x > -1 ? this.x = 0 : this.x--
-      // if (this.x == 0) {
-      //   this.x =  0 
-      // }else{
-      //   this.x -- ;
+      // this.x--
+      // if (this.x >= 0 && this.x <= 35) {
+      //   this.x = Math.floor(Math.random() * 25)
+      //   // console.log(this.x)
+      //   this.playeState = "fire"
+      //   this.movingSpeed = 7
       // }
-      
+      // else {
+        this.x -- ;
+      // }
+     
+      // console.log(this.x)
     }
     draw(context){
-        let sprite = this.animation["run"].loc
+        let sprite = this.animation[this.playeState].loc
         let position = Math.floor(this.speed/this.movingSpeed) % sprite.length;
         let deduceX = (position + 1) * sprite[position].E_width
         let deduceY = sprite[position].y

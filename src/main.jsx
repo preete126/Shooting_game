@@ -6,7 +6,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import './index.css'
 // import Menu from './Menu'
 const App  = React.lazy(()=>import("./App"))
-const Menus = React.lazy(()=>import("./Menu"))
+const Menus = React.lazy(()=>import("./Menus"))
 
 
 const router = createBrowserRouter([

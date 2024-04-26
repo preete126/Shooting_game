@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-// import App from './App'
+import { Suspense } from 'react'
 
 import './index.css'
 // import Menu from './Menu'
@@ -16,6 +16,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <Suspense>
+      <RouterProvider router={router}/>
+    </Suspense>
   </React.StrictMode>
 )

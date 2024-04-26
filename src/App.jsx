@@ -15,7 +15,7 @@ function App() {
   const Herocanvas = useRef(null)
   const Enemycanvas = useRef(null)
   const ground_img5 = new Image()
-  ground_img5.src = Image1
+  ground_img5.src = Image2
   const ground_img6 = new Image()
   ground_img6.src = Image2
  
@@ -220,11 +220,11 @@ function App() {
     <>
       <canvas ref={canvas} className="canvas" width={1260} height={480} ></canvas>
       <canvas ref={Herocanvas} className="canvas2" width={100} height={100}  ></canvas>
-      <canvas ref={Enemycanvas} className="canvas3" width={1100} height={100} style={{border:"1px solid black"}} ></canvas>
+      <canvas ref={Enemycanvas} className="canvas3" width={1100} height={100}  ></canvas>
       <main>
         <main className="Addup">
-            <div className="count">BODYCOUNT: 27</div>
-            <div className="score">SCORE: 125</div>
+            <div className="count">BODYCOUNT: 00</div>
+            <div className="score">SCORE: 00</div>
         </main>
 
         <main style={{ position: "absolute", bottom: "10%", left: "2%" }}>
@@ -234,7 +234,7 @@ function App() {
           </div>
         </main>
 
-       {toggler == true &&  <section className="Notice">‼ <span style={{color:"white"}}>ENEMIES AHEAD</span> ‼</section>}
+       {toggler == false &&  <section className="Notice">‼ <span style={{color:"white"}}>ENEMIES AHEAD</span> ‼</section>}
 
         <div className="Triger">Exit</div>
         <div className="Triger" onClick={()=> playState = "crouch"} style={{ right: "10%", bottom: "16%" }}>Crouch</div>

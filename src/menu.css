@@ -11,7 +11,7 @@
 .nav{
     display: flex;
     align-items: center;
-   
+   justify-content: center;
 }
 .header{
     padding-left: 2rem;
@@ -27,11 +27,7 @@
     font-size: 40px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    display: flex;
-    padding: 5rem;
-    justify-content: space-around;
-    align-items: center;
-    /* text-shadow: red; */
+   
     background-image: -webkit-repeating-linear-gradient(white,orange);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -58,7 +54,8 @@
 }
 .Player{
     /* border: 1px solid red; */
-    position: absolute;
+    position: relative;
     left: 50%;
-    bottom: 0%;
+    top: 20%;
+    transform: translate(-50%, -50%);
 }

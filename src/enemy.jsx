@@ -60,15 +60,15 @@ export default class Enemy_ {
     update(){
       this.speed++
       // this.x--
-      // if (this.x >= 0 && this.x <= 35) {
-      //   this.x = Math.floor(Math.random() * 25)
-      //   // console.log(this.x)
-      //   this.playeState = "fire"
-      //   this.movingSpeed = 7
-      // }
-      // else {
+      if (this.x >= 0 && this.x <= 35) {
+        this.x = Math.floor(Math.random() * 25)
+        // console.log(this.x)
+        this.playeState = "run"
+        // this.movingSpeed = 7
+      }
+      else {
         this.x -- ;
-      // }
+      }
      
       // console.log(this.x)
     }
